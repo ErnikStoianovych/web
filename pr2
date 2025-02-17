@@ -1,0 +1,64 @@
+// Завдання 1
+function checkAge () {
+    let age = parseInt(prompt("Ваш вік:"))
+    if (age <18) {
+        alert("Вам заборонено вхід")
+    } else if(age <=65) {
+        alert("Ласкаво просимо!")
+    } else {
+        alert("Будь ласка, будьте обережні!")
+    }
+}
+checkAge ()
+
+//завдання 2
+function printParniNomery(){
+    let n = parseInt(prompt("Введіть число n:"))
+    for (let i = 2; i <= n; i+=2){
+        console.log(i)
+    }
+}
+printParniNomery()
+
+//Завдання 3
+function Factorial(){
+    let num=parseInt(prompt("Введіть число для обчислення факторіалу: "))
+    let factorial=1
+    let i=1
+    
+    while(i<=num){
+        factorial *= i
+        i++
+        
+    }
+    console.log(factorial)
+}
+Factorial()
+
+//Завдання 4
+function calculate(){
+    let a =parseFloat(prompt("Введіть перше число: "))
+    let b =parseFloat(prompt("Введіть друге число: "))
+    let operation = prompt("Введіть операцію(+,-,*,/)")
+    let result
+    
+    switch (operation){
+        case "+":
+            result=a+b
+            break;
+        case"-":
+            result=a-b
+            break;
+        case"*":
+            result=a*b
+            break;
+        case"/":
+            result=b !==0 ? a/b :"Ділення на 0 неможливе"
+            break;
+        default:
+            result="Невідома операція"
+            
+    }
+    alert(result)
+}
+calculate()
