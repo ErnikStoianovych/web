@@ -1,0 +1,73 @@
+// Завдання 1: Оголошення та маніпуляція змінними
+let integerVar = 10;
+let floatVar = 3.14;
+let stringVar = "Hello";
+let booleanVar = true;
+
+console.log(typeof integerVar, typeof floatVar, typeof stringVar, typeof booleanVar);
+
+integerVar = "100";
+floatVar = false;
+stringVar = 42;
+booleanVar = "true";
+
+console.log(typeof integerVar, typeof floatVar, typeof stringVar, typeof booleanVar);
+
+let obj = { number: 10, text: "JavaScript", isTrue: false };
+console.log(JSON.stringify(obj));
+
+// Завдання 2: Робота з арифметичними операціями
+let num1 = parseFloat(prompt("Введіть перше число:"));
+let num2 = parseFloat(prompt("Введіть друге число:"));
+let num3 = parseFloat(prompt("Введіть третє число:"));
+
+let average = (num1 + num2 + num3) / 3;
+console.log("Середнє арифметичне:", average);
+
+console.log(Math.abs(num1), Math.ceil(num2), Math.floor(num3), Math.pow(num1, 2));
+
+console.log(num1 % 5 === 0, num2 % 7 === 0);
+
+if (num1 + num2 > num3 && num1 + num3 > num2 && num2 + num3 > num1) {
+    console.log("Трикутник існує");
+} else {
+    console.log("Трикутник не існує");
+}
+
+// Завдання 3: Логічні та порівняльні оператори
+console.log("Максимальне число:", Math.max(num1, num2, num3));
+console.log("Мінімальне число:", Math.min(num1, num2, num3));
+
+console.log(num1 % 2 === 0 || num2 % 2 === 0 || num3 % 2 === 0);
+
+console.log(num1 > num2 && num2 < num3);
+
+function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+console.log("Число просте:", isPrime(num1));
+
+// Завдання 4: Користувацьке введення та складні перевірки
+let name = prompt("Введіть ваше ім'я:");
+let birthYear = parseInt(prompt("Введіть ваш рік народження:"));
+let city = prompt("Введіть ваше місто проживання:");
+
+let age = new Date().getFullYear() - birthYear;
+console.log("Вік користувача:", age);
+
+if (age < 12) {
+    console.log("Ви дитина");
+} else if (age < 18) {
+    console.log("Ви підліток");
+} else if (age < 60) {
+    console.log("Ви дорослий");
+} else {
+    console.log("Ви літня людина");
+}
+
+const capitals = ["Київ", "Лондон", "Вашингтон", "Берлін"];
+console.log(city + (capitals.includes(city) ? " є столицею" : " не є столицею"))
