@@ -1,0 +1,35 @@
+const students = [
+    {
+        name: "Максим Щербаков",
+        grades: {math: 86, IT: 77, history: 90}
+    },
+
+    
+    {
+        name: "Стоянович Ернест",
+        grades: {math: 78, IT: 89, history: 84}
+    },
+    
+    
+    {
+        name: "Шклярук Вікторія",
+        grades: {math: 73, IT: 79, history: 94}
+    },
+    
+    {
+        name: "Олексюк Ангеліна",
+        grades: {math: 75, IT: 89, history: 88}
+    },
+]
+
+function calculateOtsinky(grades){
+    const values=Object.values(grades)
+    const sum=values.reduce((acc, grade)=> acc+grade, 0)
+    return (sum / values.length). toFixed(2);
+}
+
+console.log("Список студентів та їх середній бал")
+students.forEach(student=> {
+    student.average=calculateOtsinky(student.grades)
+    console.log('${student.name}: ${student.average}');
+})
