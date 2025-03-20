@@ -1,7 +1,7 @@
 const urls = [
-  'https://jsonplaceholder.typicode.com/todos/1', // Приклад API для тестування
-  'https://api.ipify.org?format=json', // Отримання IP-адреси
-  'https://api.github.com/users/github', // Інформація про користувача GitHub
+  'https://jsonplaceholder.typicode.com/todos/1', 
+  'https://api.ipify.org?format=json', 
+  'https://api.github.com/users/github', 
 ];
 
 async function fetchData(url) {
