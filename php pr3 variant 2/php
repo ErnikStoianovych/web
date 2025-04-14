@@ -1,0 +1,40 @@
+<?php
+
+$_POST['login'] = 'User123';
+$_POST['password'] = 'pass123';
+$_POST['confirm_password'] = 'pass123';
+
+$errors = [];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $login = trim($_POST['login']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    
+    if (!preg_match('/^[a-zA-Z0-9_]+$/', $login)) {
+        $errors[] = "Логін повинен містити лише літери, цифри або нижнє підкреслення.";
+    }
+
+   
+    if (empty($password) || empty($confirm_password)) {
+        $errors[] = "Пароль та підтвердження не можуть бути порожніми.";
+    } elseif ($password !== $confirm_password) {
+        $errors[] = "Паролі не збігаються.";
+    }
+
+   
+    if (!filter_var($login, FILTER_SANITIZE_STRING)) {
+        $errors[] = "Неприпустимий формат логіна.";
+    }
+
+    
+    if (empty($errors)) {
+        echo "Реєстрація успішна! Вітаємо, $login!\n";
+    } else {
+        foreach ($errors as $error) {
+            echo "Помилка: $error\n";
+        }
+    }
+}
+?>
