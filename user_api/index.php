@@ -1,5 +1,5 @@
 <?php
-// Встановлюємо Content-Type для JSON-відповіді
+
 header('Content-Type: application/json');
 
 
@@ -35,7 +35,7 @@ if ($method === 'GET') {
     $users = readData($dataFile);
     if ($resource === 'users') {
         if ($id !== null) {
-            // Отримання конкретного користувача за ID
+            
             $user = array_filter($users, fn($user) => $user['id'] == $id);
             if (!empty($user)) {
                 echo json_encode(array_values($user)[0]);
@@ -44,7 +44,7 @@ if ($method === 'GET') {
                 echo json_encode(['error' => 'Користувача не знайдено']);
             }
         } else {
-            // Отримання списку всіх користувачів
+            
             echo json_encode($users);
         }
     } else {
@@ -106,8 +106,8 @@ elseif ($method === 'DELETE' && $resource === 'users' && $id !== null) {
     $initialCount = count($users);
     $users = array_filter($users, fn($user) => $user['id'] != $id);
     if (count($users) < $initialCount) {
-        writeData($dataFile, array_values($users)); // Переіндексуємо масив після видалення
-        http_response_code(204); // No Content - успішне видалення
+        writeData($dataFile, array_values($users)); 
+        http_response_code(204); 
     } else {
         http_response_code(404);
         echo json_encode(['error' => 'Користувача не знайдено']);
